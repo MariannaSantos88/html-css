@@ -13,6 +13,7 @@
         table{
             width: 500px;
             border-collapse: collapse;
+            position: relative;
         }
 
         td, th{
@@ -23,6 +24,23 @@
         thead, tfoot{
             background-color: grey;
             color: white;
+        }
+
+        thead >tr >th{ /*deixou o cabeçalho fixo*/
+            position: sticky;
+            top: -1px;
+            background-color: grey;
+        }
+
+        tbody >tr:nth-child(2n){
+            background-color: lightgray;
+        }/*efeito zebrado*/
+
+        caption{
+            font-size: 1.5em;
+            font-weight: bold;
+            padding: 10px;
+            background-color: lightgray;
         }
 
         td.ps{
@@ -47,11 +65,12 @@
              tr ,td,th
     -->
     <table>
+        <caption>População da unidades Federativas </caption><!--legenda da tabela-->
         <thead>
             <tr>
-                <th>posição</th>
-                <th>Unidade federativa </th>
-                <th>População</th>
+                <th scope="col">posição</th>
+                <th scope="col">Unidade federativa </th>
+                <th scope="col" style="width: 100px;">População</th>
             </tr>
         </thead>
         <tbody>
@@ -194,7 +213,7 @@
         <tfoot>
             <tr>
                <th></th>
-               <th>Total de Habitates</th>
+               <th scope="row">Total de Habitates</th>
                <td class="num"><strong>210.147.125</strong></td>
             </tr>
         </tfoot>
